@@ -1,0 +1,2 @@
+class TeeTimesController < ApplicationController
+end

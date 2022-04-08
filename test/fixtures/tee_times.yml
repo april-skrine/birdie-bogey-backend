@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  golf_course: MyString
+  location: MyString
+  number_of_holes: 1
+  time: 1
+  user: one
+
+two:
+  golf_course: MyString
+  location: MyString
+  number_of_holes: 1
+  time: 1
+  user: two

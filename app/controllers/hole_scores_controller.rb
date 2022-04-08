@@ -1,0 +1,3 @@
+class HoleScoresController < ApplicationController
+
+end
