@@ -31,9 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_135741) do
 
   create_table "round_scores", force: :cascade do |t|
     t.string "course"
-    t.integer "number_of_holes"
+    t.boolean "eighteen_holes"
     t.integer "date"
-    t.integer "par"
     t.integer "total_score"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
