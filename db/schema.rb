@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_135741) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_06_135655) do
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.integer "tee_time_id", null: false
@@ -19,20 +19,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_135741) do
     t.index ["tee_time_id"], name: "index_comments_on_tee_time_id"
   end
 
-  create_table "hole_scores", force: :cascade do |t|
-    t.integer "hole_number"
-    t.integer "par"
-    t.integer "score"
-    t.integer "round_score_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["round_score_id"], name: "index_hole_scores_on_round_score_id"
-  end
-
   create_table "round_scores", force: :cascade do |t|
     t.string "course"
     t.boolean "eighteen_holes"
-    t.integer "date"
+    t.date "date"
+    t.integer "total_strokes"
+    t.integer "total_par"
     t.integer "total_score"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
@@ -44,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_135741) do
     t.string "golf_course"
     t.string "location"
     t.integer "number_of_holes"
-    t.integer "time"
+    t.time "time"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,7 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_135741) do
   end
 
   add_foreign_key "comments", "tee_times"
-  add_foreign_key "hole_scores", "round_scores"
   add_foreign_key "round_scores", "users"
   add_foreign_key "tee_times", "users"
 end

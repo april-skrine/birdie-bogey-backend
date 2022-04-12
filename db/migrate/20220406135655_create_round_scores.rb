@@ -3,7 +3,9 @@ class CreateRoundScores < ActiveRecord::Migration[7.0]
     create_table :round_scores do |t|
       t.string :course
       t.boolean :eighteen_holes
-      t.integer :date
+      t.date :date
+      t.integer :total_strokes
+      t.integer :total_par
       t.integer :total_score
       t.references :user, null: false, foreign_key: true
 
