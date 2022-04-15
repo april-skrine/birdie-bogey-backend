@@ -12,7 +12,7 @@ class TeeTimesController < ApplicationController
     private
 
     def tee_time_params
-        params.permit(:golf_course, :location, :number_of_holes, :time, :user_id)
+        params.permit(:golf_course, :location, :number_of_holes, :time, :user_id, :date)
     end
 
 end

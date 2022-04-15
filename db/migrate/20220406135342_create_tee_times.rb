@@ -4,6 +4,7 @@ class CreateTeeTimes < ActiveRecord::Migration[7.0]
       t.string :golf_course
       t.string :location
       t.integer :number_of_holes
+      t.date :date
       t.time :time
       t.references :user, null: false, foreign_key: true
 
