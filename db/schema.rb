@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_135655) do
-  create_table "comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "tee_time_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tee_time_id"], name: "index_comments_on_tee_time_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2022_04_16_115735) do
   create_table "round_scores", force: :cascade do |t|
     t.string "course"
     t.boolean "eighteen_holes"
@@ -38,10 +30,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_135655) do
     t.integer "number_of_holes"
     t.date "date"
     t.time "time"
+    t.integer "open_spots"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tee_times_on_user_id"
+  end
+
+  create_table "user_tee_times", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "tee_time_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tee_time_id"], name: "index_user_tee_times_on_tee_time_id"
+    t.index ["user_id"], name: "index_user_tee_times_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_135655) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "comments", "tee_times"
   add_foreign_key "round_scores", "users"
   add_foreign_key "tee_times", "users"
+  add_foreign_key "user_tee_times", "tee_times"
+  add_foreign_key "user_tee_times", "users"
 end

@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :tee_times
     has_many :comments, through: :tee_times
     has_many :round_scores
-    has_many :hole_scores, through: :round_scores
+    has_many :user_tee_times
 
     validates :username, presence: true, on: :create
     validates :username, uniqueness: true, on: :create

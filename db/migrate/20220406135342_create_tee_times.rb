@@ -6,6 +6,7 @@ class CreateTeeTimes < ActiveRecord::Migration[7.0]
       t.integer :number_of_holes
       t.date :date
       t.time :time
+      t.integer :open_spots
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
