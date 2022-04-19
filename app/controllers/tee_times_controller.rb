@@ -1,11 +1,12 @@
 class TeeTimesController < ApplicationController
 
-    def index
-        render json: TeeTime.all, include: [:user], status: :ok
+    def index 
+        render json: TeeTime.all.order(:date), include: [:user], status: :ok
     end
 
     def create
         new_tee_time = TeeTime.create!(tee_time_params)
+        UserTeeTime.create(tee_time_id: new_tee_time.id, user_id: params[:user_id])
         render json: new_tee_time, status: :created
     end
 
