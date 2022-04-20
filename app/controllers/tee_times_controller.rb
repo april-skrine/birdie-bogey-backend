@@ -20,6 +20,12 @@ class TeeTimesController < ApplicationController
         end
     end
 
+    # def get_names
+    #     t = TeeTime.find(params[:id])
+    #     names = t.user_tee_times.map{ |u| u.user.name}
+    #     render json: names, status: :ok
+    # end
+
     private
 
     def tee_time_params

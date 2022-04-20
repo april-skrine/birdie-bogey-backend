@@ -1,3 +1,3 @@
-class RoundScoresSerializer < ActiveModel::Serializer
+class RoundScoreSerializer < ActiveModel::Serializer
   attributes :id, :course, :total_strokes, :total_par, :total_score, :date
 end
