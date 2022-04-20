@@ -2,6 +2,7 @@
 class UserTeeTimesController < ApplicationController
     def create
         if UserTeeTime.where(tee_time_id: params[:tee_time_id]).pluck(:user_id).include?(params[:user_id])
+
             return render json: error, status: :unprocessable_entity
         end
         user_tee_time = UserTeeTime.create!(tee_time_params)
